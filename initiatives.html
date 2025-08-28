@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Initiatives - Veterans India Healthcare Wing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --light-blue: #dbeafe;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --white: #ffffff;
+            --light-gray: #f9fafb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-blue);
+            border-radius: 2px;
+        }
+
+        .initiative-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .initiative-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .initiative-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-blue), var(--accent-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 2rem;
+        }
+
+        .stats-section {
+            background: var(--light-gray);
+            padding: 60px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .btn-custom {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary-custom {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .navbar {
+            background: var(--white) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-blue) !important;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-blue) !important;
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer h5 {
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-heartbeat me-2"></i>
+                Veterans India Healthcare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="initiatives.html">Initiatives</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="recognition.html">Recognition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row hero-content">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Our Healthcare Initiatives</h1>
+                    <p class="lead mb-5">Transforming healthcare delivery across India through innovative programs and dedicated service to veterans and communities in need.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <button class="btn btn-primary-custom btn-custom">
+                            <i class="fas fa-calendar-check me-2"></i>
+                            Book Health Camp
+                        </button>
+                        <button class="btn btn-outline-custom btn-custom">
+                            <i class="fas fa-hand-holding-heart me-2"></i>
+                            Volunteer Today
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 stat-item">
+                    <div class="stat-number">1,25,000+</div>
+                    <div class="stat-label">Beneficiaries Served</div>
+                </div>
+                <div class="col-md-3 col-6 stat-item">
+                    <div class="stat-number">800+</div>
+                    <div class="stat-label">Health Camps Conducted</div>
+                </div>
+                <div class="col-md-3 col-6 stat-item">
+                    <div class="stat-number">3,500+</div>
+                    <div class="stat-label">Medical Volunteers</div>
+                </div>
+                <div class="col-md-3 col-6 stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">States Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Our Healthcare Programs</h2>
+                    <p class="lead text-muted">Comprehensive healthcare solutions reaching every corner of India</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Mobile Healthcare Units -->
+                <div class="col-lg-6">
+                    <div class="initiative-card">
+                        <div class="initiative-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Mobile Healthcare Units</h4>
+                        <p class="text-muted mb-4">Fully equipped vans providing free primary healthcare to rural & remote areas. Our mobile units bring medical care directly to communities that need it most.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Primary healthcare services</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Basic diagnostics</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Medicine distribution</li>
+                        </ul>
+                        <button class="btn btn-outline-primary mt-3">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Specialist Consultation Programs -->
+                <div class="col-lg-6">
+                    <div class="initiative-card">
+                        <div class="initiative-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Specialist Consultation Programs</h4>
+                        <p class="text-muted mb-4">Connecting veterans and citizens with leading doctors at no or minimal cost. Expert care when you need it most.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Cardiology</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Orthopedics</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Neurology</li>
+                        </ul>
+                        <button class="btn btn-outline-primary mt-3">Book Consultation</button>
+                    </div>
+                </div>
+
+                <!-- Health Camps & Screenings -->
+                <div class="col-lg-6">
+                    <div class="initiative-card">
+                        <div class="initiative-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Health Camps & Screenings</h4>
+                        <p class="text-muted mb-4">Comprehensive health camps focusing on cardiac health, diabetes, cancer detection, eye & dental care.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Cardiac screening</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Diabetes management</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Cancer detection</li>
+                        </ul>
+                        <button class="btn btn-outline-primary mt-3">Find Camps</button>
+                    </div>
+                </div>
+
+                <!-- Mental Health & Counselling -->
+                <div class="col-lg-6">
+                    <div class="initiative-card">
+                        <div class="initiative-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Mental Health & Counselling</h4>
+                        <p class="text-muted mb-4">Dedicated sessions for PTSD, stress, and emotional health — led by qualified mental health professionals.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>PTSD support</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Stress management</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Family counselling</li>
+                        </ul>
+                        <button class="btn btn-outline-primary mt-3">Get Support</button>
+                    </div>
+                </div>
+
+                <!-- Veteran Wellness Program -->
+                <div class="col-lg-6">
+                    <div class="initiative-card">
+                        <div class="initiative-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Veteran Wellness Program</h4>
+                        <p class="text-muted mb-4">Yoga, meditation, fitness, and diet guidance tailored specifically for ex-servicemen and their families.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Yoga & meditation</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Fitness training</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Nutrition guidance</li>
+                        </ul>
+                        <button class="btn btn-outline-primary mt-3">Join Program</button>
+                    </div>
+                </div>
+
+                <!-- Emergency Blood & Organ Donor Network -->
+                <div class="col-lg-6">
+                    <div class="initiative-card">
+                        <div class="initiative-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Emergency Blood & Organ Donor Network</h4>
+                        <p class="text-muted mb-4">Citizen-led rapid response network for life-saving situations. Every donor can save multiple lives.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Blood donation</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Organ registry</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Emergency response</li>
+                        </ul>
+                        <button class="btn btn-outline-primary mt-3">Become Donor</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="fw-bold mb-4">Ready to Make a Difference?</h3>
+                    <p class="lead mb-5">Join our healthcare initiatives and help us serve veterans and communities across India.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <button class="btn btn-primary-custom btn-custom">
+                            <i class="fas fa-user-plus me-2"></i>
+                            Register as Volunteer
+                        </button>
+                        <button class="btn btn-outline-custom btn-custom">
+                            <i class="fas fa-hospital me-2"></i>
+                            Partner With Us
+                        </button>
+                        <button class="btn btn-outline-custom btn-custom">
+                            <i class="fas fa-hand-holding-usd me-2"></i>
+                            Donate Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-heartbeat me-2"></i>Veterans India Healthcare</h5>
+                    <p>Serving Those Who Served, Healing the Nation. Join us in delivering accessible, affordable, and quality healthcare to veterans, their families, and every citizen in need.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="initiatives.html">Initiatives</a></li>
+                        <li><a href="recognition.html">Recognition</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i>99115 11967</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@veteransindia.com</li>
+                        <li><i class="fas fa-globe me-2"></i>www.veteransindia.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Follow Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 Veterans India Healthcare Wing. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
